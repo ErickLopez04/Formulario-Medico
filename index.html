@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Médico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Formulario de Registro Médico</h1>
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1">Datos Personales</div>
+                <div class="progress-step" data-step="2">Familiares</div>
+                <div class="progress-step" data-step="3">Condiciones</div>
+                <div class="progress-step" data-step="4">Internamientos</div>
+                <div class="progress-step" data-step="5">Resumen</div>
+            </div>
+        </header>
+
+        <!-- Form Container -->
+        <main class="form-container">
+            <!-- Página 1: Datos Personales -->
+            <div class="form-page active" id="page-1">
+                <h2>Datos Personales</h2>
+                <form id="personal-form">
+                    <div class="form-group">
+                        <label for="nombres">Nombres *</label>
+                        <input type="text" id="nombres" name="nombres" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos *</label>
+                        <input type="text" id="apellidos" name="apellidos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cedula">Cédula *</label>
+                        <input type="text" id="cedula" name="cedula" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha-nacimiento">Fecha de Nacimiento *</label>
+                        <input type="date" id="fecha-nacimiento" name="fechaNacimiento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Página 2: Familiares -->
+            <div class="form-page" id="page-2">
+                <h2>Familiares</h2>
+                <div class="section-header">
+                    <h3>Agregar Familiares</h3>
+                    <button type="button" class="btn-add" onclick="showFamiliarModal()">+ Agregar</button>
+                </div>
+                <div id="familiares-list" class="items-list">
+                    <!-- Familiares aparecerán aquí -->
+                </div>
+            </div>
+
+            <!-- Página 3: Condiciones de Salud -->
+            <div class="form-page" id="page-3">
+                <h2>Condiciones de Salud</h2>
+                <div class="section-header">
+                    <h3>Agregar Condiciones</h3>
+                    <button type="button" class="btn-add" onclick="showCondicionModal()">+ Agregar</button>
+                </div>
+                <div id="condiciones-list" class="items-list">
+                    <!-- Condiciones aparecerán aquí -->
+                </div>
+            </div>
+
+            <!-- Página 4: Internamientos -->
+            <div class="form-page" id="page-4">
+                <h2>Internamientos</h2>
+                <div class="section-header">
+                    <h3>Agregar Internamientos</h3>
+                    <button type="button" class="btn-add" onclick="showInternamientoModal()">+ Agregar</button>
+                </div>
+                <div id="internamientos-list" class="items-list">
+                    <!-- Internamientos aparecerán aquí -->
+                </div>
+            </div>
+
+            <!-- Página 5: Resumen -->
+            <div class="form-page" id="page-5">
+                <h2>Resumen</h2>
+                <div id="resumen-content">
+                    <!-- Resumen aparecerá aquí -->
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <div class="navigation">
+                <button type="button" class="btn-secondary" id="btn-prev" onclick="prevPage()">← Anterior</button>
+                <button type="button" class="btn-primary" id="btn-next" onclick="nextPage()">Siguiente →</button>
+                <button type="button" class="btn-success" id="btn-save" onclick="saveRecord()" style="display: none;">Guardar</button>
+            </div>
+        </main>
+
+        <!-- Registros Guardados -->
+        <aside class="sidebar">
+            <h3>Registros Guardados</h3>
+            <div id="records-list">
+                <p class="empty-message">No hay registros</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <!-- Contenido del modal -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
